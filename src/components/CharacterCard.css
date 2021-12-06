@@ -1,0 +1,10 @@
+.characterList {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.characterList__card {
+  width: 18rem;
+  margin: 20px;
+  display: flex;
+}
