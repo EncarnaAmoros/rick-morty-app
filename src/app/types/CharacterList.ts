@@ -1,9 +1,13 @@
 import { Character } from "./CharacterDetail";
 
-export interface CharacterListResponse {
+interface Info {
   count: number;
   pages: number;
   next?: string;
   prev?: string;
+}
+
+export interface CharacterListResponse {
+  info: Info;
   results: Character[];
 }

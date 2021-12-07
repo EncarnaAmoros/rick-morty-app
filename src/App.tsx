@@ -1,9 +1,12 @@
+import React from "react";
 import { CharactersList } from "./app/CharactersList/CharactersList";
-import "./App.css";
+
+import "./App.scss";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+      <h1 className="app__title">{"Rick & Morty"}</h1>
       <CharactersList />
     </div>
   );

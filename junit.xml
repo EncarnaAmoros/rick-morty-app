@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="10" failures="0" errors="0" time="3.409">
+  <testsuite name="Character Card" errors="0" failures="0" skipped="0" timestamp="2021-12-07T13:11:39" time="2.426" tests="2">
+    <testcase classname="Character Card should render an alien character card" name="Character Card should render an alien character card" time="0.08">
+    </testcase>
+    <testcase classname="Character Card should render an unkown character card" name="Character Card should render an unkown character card" time="0.028">
+    </testcase>
+  </testsuite>
+  <testsuite name="ListPagination" errors="0" failures="0" skipped="0" timestamp="2021-12-07T13:11:39" time="2.449" tests="5">
+    <testcase classname="ListPagination should render the pagination" name="ListPagination should render the pagination" time="0.071">
+    </testcase>
+    <testcase classname="ListPagination should render the pagination starting in the 3 page" name="ListPagination should render the pagination starting in the 3 page" time="0.028">
+    </testcase>
+    <testcase classname="ListPagination should render all the links enabled" name="ListPagination should render all the links enabled" time="0.013">
+    </testcase>
+    <testcase classname="ListPagination should render the pagination prev icon disabled in the first page" name="ListPagination should render the pagination prev icon disabled in the first page" time="0.01">
+    </testcase>
+    <testcase classname="ListPagination should render the pagination next icon disabled in the first page" name="ListPagination should render the pagination next icon disabled in the first page" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="Character List without" errors="0" failures="0" skipped="2" timestamp="2021-12-07T13:11:39" time="2.458" tests="3">
+    <testcase classname="Character List without should render a list of characters" name="Character List without should render a list of characters" time="0.121">
+    </testcase>
+    <testcase classname="Character List without should render a list of characters without pagination" name="Character List without should render a list of characters without pagination" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Character List without should render a list of characters with pagination" name="Character List without should render a list of characters with pagination" time="0.001">
+      <skipped/>
+    </testcase>
+  </testsuite>
+</testsuites>

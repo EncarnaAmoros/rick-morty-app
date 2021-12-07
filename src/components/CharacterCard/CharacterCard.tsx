@@ -1,6 +1,7 @@
+import React from "react";
 import { Card } from "react-bootstrap";
 
-import "./CharacterCard.css";
+import styles from "./CharacterCard.module.scss";
 
 type CharacterBasicInfo = {
   name: string;
@@ -11,8 +12,8 @@ type CharacterBasicInfo = {
 export const CharacterCard = (props: CharacterBasicInfo) => {
   const { name, image, specie } = props;
   return (
-    <div className="characterList">
-      <Card className="characterList__card">
+    <div className={styles.characterList}>
+      <Card className={styles.characterList__card}>
         <Card.Img variant="top" src={image} alt={name} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>

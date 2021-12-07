@@ -1,66 +1,52 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
-import { CharacterListResponse } from "../types/CharacterList";
+import "@testing-library/jest-dom/extend-expect";
+
+import {
+  mockHookResponse,
+  mockHookResponseWithPagination,
+} from "./CharacterList.mock";
 import { CharactersList } from "./CharactersList";
 
-const mockResultsList: CharacterListResponse = {
-  count: 1,
-  pages: 1,
-  results: [
-    {
-      name: "Alfredo",
-      species: "Human",
-      image: "characterImage1.png",
-      id: 1,
-      status: "alive",
-      type: "some",
-      gender: "male",
-      origin: { name: "earth", url: "earth.com" },
-      location: { name: "earth", url: "earth.com" },
-      episode: [],
-      url: "someurl.com",
-      created: new Date().toString(),
-    },
-    {
-      name: "Ana",
-      species: "Human",
-      image: "characterImage1.png",
-      id: 2,
-      status: "alive",
-      type: "some",
-      gender: "male",
-      origin: { name: "earth", url: "earth.com" },
-      location: { name: "earth", url: "earth.com" },
-      episode: [],
-      url: "someurl.com",
-      created: new Date().toString(),
-    },
-    {
-      name: "Morty",
-      species: "Human",
-      image: "characterImage1.png",
-      id: 3,
-      status: "alive",
-      type: "some",
-      gender: "male",
-      origin: { name: "earth", url: "earth.com" },
-      location: { name: "earth", url: "earth.com" },
-      episode: [],
-      url: "someurl.com",
-      created: new Date().toString(),
-    },
-  ],
-};
-
 jest.mock("./CharactersList.hook", () => ({
-  useCharacterList: () => [mockResultsList],
+  useCharacterList: jest
+    .fn()
+    .mockReturnValueOnce(mockHookResponse)
+    .mockReturnValueOnce(mockHookResponse)
+    .mockReturnValueOnce(mockHookResponseWithPagination)
+    .mockReturnValue(mockHookResponse),
 }));
 
-describe("Character List", () => {
-  it("should render a list of characters", async () => {
+describe("Character List without", () => {
+  it.only("should render a list of characters", async () => {
     render(<CharactersList />);
 
     expect(screen.getByText("Alfredo")).toBeVisible();
     expect(screen.getByText("Ana")).toBeVisible();
     expect(screen.getByText("Morty")).toBeVisible();
+  });
+
+  it("should render a list of characters without pagination", async () => {
+    render(<CharactersList />);
+
+    expect(screen.getByText("Alfredo")).toBeVisible();
+    expect(screen.getByText("Ana")).toBeVisible();
+    expect(screen.getByText("Morty")).toBeVisible();
+
+    expect(screen.queryByText(3)).not.toBeInTheDocument();
+    expect(screen.queryByText(/previous/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/next/i)).not.toBeInTheDocument();
+  });
+
+  it("should render a list of characters with pagination", async () => {
+    render(<CharactersList />);
+
+    expect(screen.getByText("Alfredo")).toBeVisible();
+    expect(screen.getByText("Ana")).toBeVisible();
+    expect(screen.getByText("Morty")).toBeVisible();
+
+    expect(screen.getByText(1)).toBeVisible();
+    expect(screen.getByText(/previous/i)).toBeVisible();
+    expect(screen.getByText(/next/i)).toBeVisible();
   });
 });
