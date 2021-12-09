@@ -1,31 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="10" failures="0" errors="0" time="3.409">
-  <testsuite name="Character Card" errors="0" failures="0" skipped="0" timestamp="2021-12-07T13:11:39" time="2.426" tests="2">
-    <testcase classname="Character Card should render an alien character card" name="Character Card should render an alien character card" time="0.08">
-    </testcase>
-    <testcase classname="Character Card should render an unkown character card" name="Character Card should render an unkown character card" time="0.028">
+<testsuites name="jest tests" tests="16" failures="0" errors="0" time="4.74">
+  <testsuite name="Spinner" errors="0" failures="0" skipped="0" timestamp="2021-12-09T20:14:00" time="2.711" tests="1">
+    <testcase classname="Spinner should render a spinner" name="Spinner should render a spinner" time="0.111">
     </testcase>
   </testsuite>
-  <testsuite name="ListPagination" errors="0" failures="0" skipped="0" timestamp="2021-12-07T13:11:39" time="2.449" tests="5">
-    <testcase classname="ListPagination should render the pagination" name="ListPagination should render the pagination" time="0.071">
+  <testsuite name="Character Info" errors="0" failures="0" skipped="0" timestamp="2021-12-09T20:14:00" time="2.758" tests="2">
+    <testcase classname="Character Info should render character info" name="Character Info should render character info" time="0.117">
     </testcase>
-    <testcase classname="ListPagination should render the pagination starting in the 3 page" name="ListPagination should render the pagination starting in the 3 page" time="0.028">
-    </testcase>
-    <testcase classname="ListPagination should render all the links enabled" name="ListPagination should render all the links enabled" time="0.013">
-    </testcase>
-    <testcase classname="ListPagination should render the pagination prev icon disabled in the first page" name="ListPagination should render the pagination prev icon disabled in the first page" time="0.01">
-    </testcase>
-    <testcase classname="ListPagination should render the pagination next icon disabled in the first page" name="ListPagination should render the pagination next icon disabled in the first page" time="0.01">
+    <testcase classname="Character Info should render character info with unknown value" name="Character Info should render character info with unknown value" time="0.034">
     </testcase>
   </testsuite>
-  <testsuite name="Character List without" errors="0" failures="0" skipped="2" timestamp="2021-12-07T13:11:39" time="2.458" tests="3">
-    <testcase classname="Character List without should render a list of characters" name="Character List without should render a list of characters" time="0.121">
+  <testsuite name="Character Location" errors="0" failures="0" skipped="0" timestamp="2021-12-09T20:14:00" time="2.777" tests="2">
+    <testcase classname="Character Location should render character origin location" name="Character Location should render character origin location" time="0.116">
     </testcase>
-    <testcase classname="Character List without should render a list of characters without pagination" name="Character List without should render a list of characters without pagination" time="0">
-      <skipped/>
+    <testcase classname="Character Location should render character no origin location" name="Character Location should render character no origin location" time="0.028">
     </testcase>
-    <testcase classname="Character List without should render a list of characters with pagination" name="Character List without should render a list of characters with pagination" time="0.001">
-      <skipped/>
+  </testsuite>
+  <testsuite name="Character Card" errors="0" failures="0" skipped="0" timestamp="2021-12-09T20:14:00" time="3.104" tests="2">
+    <testcase classname="Character Card should render an alien character card" name="Character Card should render an alien character card" time="0.085">
+    </testcase>
+    <testcase classname="Character Card should render an unkown character card" name="Character Card should render an unkown character card" time="0.026">
+    </testcase>
+  </testsuite>
+  <testsuite name="ListPagination" errors="0" failures="0" skipped="0" timestamp="2021-12-09T20:14:00" time="3.149" tests="5">
+    <testcase classname="ListPagination should render the pagination" name="ListPagination should render the pagination" time="0.085">
+    </testcase>
+    <testcase classname="ListPagination should render the pagination starting in the 3 page" name="ListPagination should render the pagination starting in the 3 page" time="0.027">
+    </testcase>
+    <testcase classname="ListPagination should render all the links enabled" name="ListPagination should render all the links enabled" time="0.012">
+    </testcase>
+    <testcase classname="ListPagination should render the pagination prev icon disabled in the first page" name="ListPagination should render the pagination prev icon disabled in the first page" time="0.008">
+    </testcase>
+    <testcase classname="ListPagination should render the pagination next icon disabled in the first page" name="ListPagination should render the pagination next icon disabled in the first page" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="Character List without" errors="0" failures="0" skipped="0" timestamp="2021-12-09T20:14:00" time="3.233" tests="3">
+    <testcase classname="Character List without should render a list of characters" name="Character List without should render a list of characters" time="0.122">
+    </testcase>
+    <testcase classname="Character List without should render a list of characters without pagination" name="Character List without should render a list of characters without pagination" time="0.043">
+    </testcase>
+    <testcase classname="Character List without should render a list of characters with pagination" name="Character List without should render a list of characters with pagination" time="0.063">
+    </testcase>
+  </testsuite>
+  <testsuite name="Character detail" errors="0" failures="0" skipped="0" timestamp="2021-12-09T20:14:00" time="3.404" tests="1">
+    <testcase classname="Character detail should render a list of characters" name="Character detail should render a list of characters" time="0.131">
     </testcase>
   </testsuite>
 </testsuites>

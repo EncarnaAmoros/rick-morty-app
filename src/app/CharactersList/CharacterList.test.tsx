@@ -3,22 +3,26 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import {
-  mockHookResponse,
-  mockHookResponseWithPagination,
+  mockResultsCharacters,
+  mockResultsCharactersWithPagination,
 } from "./CharacterList.mock";
 import { CharactersList } from "./CharactersList";
 
 jest.mock("./CharactersList.hook", () => ({
   useCharacterList: jest
     .fn()
-    .mockReturnValueOnce(mockHookResponse)
-    .mockReturnValueOnce(mockHookResponse)
-    .mockReturnValueOnce(mockHookResponseWithPagination)
-    .mockReturnValue(mockHookResponse),
+    .mockReturnValueOnce(mockResultsCharacters)
+    .mockReturnValueOnce(mockResultsCharacters)
+    .mockReturnValueOnce(mockResultsCharactersWithPagination)
+    .mockReturnValue(mockResultsCharacters),
+}));
+
+jest.mock("react-router-dom", () => ({
+  useNavigate: () => {},
 }));
 
 describe("Character List without", () => {
-  it.only("should render a list of characters", async () => {
+  it("should render a list of characters", async () => {
     render(<CharactersList />);
 
     expect(screen.getByText("Alfredo")).toBeVisible();
@@ -45,7 +49,7 @@ describe("Character List without", () => {
     expect(screen.getByText("Ana")).toBeVisible();
     expect(screen.getByText("Morty")).toBeVisible();
 
-    expect(screen.getByText(1)).toBeVisible();
+    expect(screen.getByText(3)).toBeVisible();
     expect(screen.getByText(/previous/i)).toBeVisible();
     expect(screen.getByText(/next/i)).toBeVisible();
   });

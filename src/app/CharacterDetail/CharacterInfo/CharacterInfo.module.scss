@@ -1,0 +1,14 @@
+.info {
+  display: flex;
+}
+
+.info__type {
+  font-weight: bold;
+  width: 80px;
+  font-size: 19px;
+}
+
+.info__value {
+  margin-left: 20px;
+  font-size: 19px;
+}

@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { CharacterListResponse } from "../types/CharacterList";
+import { CharacterListResponse } from "src/app/types/CharacterList";
 
 const rmurl = "https://rickandmortyapi.com/api/character";
 
 export const useCharacterList = () => {
   const [charactersList, setCharactersList] = useState<CharacterListResponse>();
+  const [fetching, setFetching] = useState<boolean>();
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const fetchCharacters = async (url?: string) => {
+    setFetching(true);
     const response = await fetch(url ? url : rmurl);
     setCharactersList(await response.json());
+    setFetching(false);
   };
 
   useEffect(() => {
@@ -40,6 +43,7 @@ export const useCharacterList = () => {
 
   return {
     charactersList,
+    fetching,
     currentPage,
     goToPrevPage,
     goToNextPage,

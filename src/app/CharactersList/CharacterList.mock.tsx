@@ -1,6 +1,6 @@
-import { CharacterListResponse } from "../types/CharacterList";
+import { CharacterListResponse } from "src/app/types/CharacterList";
 
-const mockResultsList: CharacterListResponse = {
+const resultsCharacters: CharacterListResponse = {
   info: {
     count: 1,
     pages: 1,
@@ -51,8 +51,8 @@ const mockResultsList: CharacterListResponse = {
   ],
 };
 
-const mockResultsListWithPagination: CharacterListResponse = {
-  ...mockResultsList,
+const resultsCharactersWithPagination: CharacterListResponse = {
+  ...resultsCharacters,
   info: {
     count: 25,
     pages: 5,
@@ -60,8 +60,8 @@ const mockResultsListWithPagination: CharacterListResponse = {
   },
 };
 
-export const mockHookResponse = {
-  charactersList: mockResultsList,
+export const mockResultsCharacters = {
+  charactersList: resultsCharacters,
   currentPage: 3,
   goToPrevPage: () => {},
   goToNextPage: () => {},
@@ -69,8 +69,8 @@ export const mockHookResponse = {
   goToLastPage: () => {},
 };
 
-export const mockHookResponseWithPagination = {
-  charactersList: mockResultsListWithPagination,
+export const mockResultsCharactersWithPagination = {
+  charactersList: resultsCharactersWithPagination,
   currentPage: 3,
   goToPrevPage: () => {},
   goToNextPage: () => {},

@@ -1,0 +1,25 @@
+.characterDetail {
+  border: 1px solid #e5e2e2;
+  padding-left: 50px !important;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.characterDetail__title {
+  margin-top: 10px;
+}
+
+.characterDetail__profile {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.characterDetail__profile--img {
+  margin-top: 30px;
+}
+
+.characterDetail__profile--info {
+  margin-top: 30px;
+  margin-left: 50px;
+  width: 450px;
+}

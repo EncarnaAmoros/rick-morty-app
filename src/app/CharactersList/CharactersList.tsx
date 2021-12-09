@@ -1,7 +1,10 @@
 import React from "react";
-import { CharacterCard } from "../../components/CharacterCard/CharacterCard";
-import { ListPagination } from "../../components/Pagination/ListPagination";
-import { Character } from "../types/CharacterDetail";
+import { useNavigate } from "react-router-dom";
+
+import { Spinner } from "src/components/Spinner/Spinner";
+import { CharacterCard } from "src/components/CharacterCard/CharacterCard";
+import { ListPagination } from "src/components/Pagination/ListPagination";
+import { Character } from "src/app/types/CharacterDetail";
 import { useCharacterList } from "./CharactersList.hook";
 
 import styles from "./CharactersList.module.scss";
@@ -9,12 +12,14 @@ import styles from "./CharactersList.module.scss";
 export const CharactersList = () => {
   const {
     charactersList,
+    fetching,
     currentPage,
     goToPrevPage,
     goToNextPage,
     goToFirstPage,
     goToLastPage,
   } = useCharacterList();
+  const navigate = useNavigate();
 
   const noListData = "There is no data about the characters of the serie";
 
@@ -29,10 +34,14 @@ export const CharactersList = () => {
   const moreThanOnePage =
     charactersList?.info.prev || charactersList?.info.next;
 
+  const goToCharacterDetail = (id: number) => {
+    navigate(`/character/${id}`);
+  };
+
   return (
     <>
       {charactersList ? (
-        <div>
+        <div className={styles.charactersList}>
           <section>
             {charactersList.results.map((character: Character) => {
               return (
@@ -41,6 +50,7 @@ export const CharactersList = () => {
                   name={character.name}
                   image={character.image}
                   specie={character.species}
+                  onClick={() => goToCharacterDetail(character.id)}
                 />
               );
             })}
@@ -59,7 +69,7 @@ export const CharactersList = () => {
           )}
         </div>
       ) : (
-        <h3>{noListData}</h3>
+        <>{fetching ? <Spinner /> : <h3>{noListData}</h3>}</>
       )}
     </>
   );

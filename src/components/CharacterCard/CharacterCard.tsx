@@ -7,12 +7,13 @@ type CharacterBasicInfo = {
   name: string;
   image: string;
   specie?: string;
+  onClick: () => void;
 };
 
 export const CharacterCard = (props: CharacterBasicInfo) => {
-  const { name, image, specie } = props;
+  const { name, image, specie, onClick } = props;
   return (
-    <div className={styles.characterList}>
+    <div className={styles.characterList} onClick={onClick}>
       <Card className={styles.characterList__card}>
         <Card.Img variant="top" src={image} alt={name} />
         <Card.Body>
