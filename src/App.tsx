@@ -6,10 +6,14 @@ import { CharacterDetail } from "src/app/CharacterDetail/CharactersDetail";
 
 import "./App.scss";
 
+const title = "Rick & Morty";
+
 function App() {
   return (
     <div className="app">
-      <h1 className="app__title">{"Rick & Morty"}</h1>
+      <div className="app__header">
+        <h1 className="app__title">{title}</h1>
+      </div>
       <BrowserRouter>
         <Routes>
           <Route path="/character/:id" element={<CharacterDetail />} />

@@ -7,17 +7,27 @@ export const useCharacterList = () => {
   const [charactersList, setCharactersList] = useState<CharacterListResponse>();
   const [fetching, setFetching] = useState<boolean>();
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchText, setSearchText] = useState<string>("");
 
   const fetchCharacters = async (url?: string) => {
     setFetching(true);
     const response = await fetch(url ? url : rmurl);
     setCharactersList(await response.json());
+    setCurrentPage(0);
     setFetching(false);
   };
 
   useEffect(() => {
     fetchCharacters();
   }, []);
+
+  useEffect(() => {
+    if (searchText) {
+      fetchCharacters(`${rmurl}/?name=${searchText}`);
+    } else {
+      fetchCharacters();
+    }
+  }, [searchText]);
 
   const goToPrevPage = async () => {
     if (charactersList?.info?.prev)
@@ -45,6 +55,8 @@ export const useCharacterList = () => {
     charactersList,
     fetching,
     currentPage,
+    searchText,
+    setSearchText,
     goToPrevPage,
     goToNextPage,
     goToFirstPage,

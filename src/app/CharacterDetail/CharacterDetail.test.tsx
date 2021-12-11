@@ -5,6 +5,11 @@ import "@testing-library/jest-dom/extend-expect";
 import { mockCharacterData } from "./CharacterDetail.mock";
 import { CharacterDetail } from "./CharactersDetail";
 
+jest.mock("react-router-dom", () => ({
+  useNavigate: () => {},
+  useParams: jest.fn().mockReturnValue({ id: 5 }),
+}));
+
 jest.mock("./CharacterDetail.hook", () => ({
   useCharacterDetail: jest.fn().mockReturnValue(mockCharacterData),
 }));

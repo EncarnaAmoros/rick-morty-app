@@ -2,12 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
-import { BsFillRecordFill } from "react-icons/bs";
 
 import { Spinner } from "src/components/Spinner/Spinner";
 import { useCharacterDetail } from "./CharacterDetail.hook";
 import { CharacterInfo } from "./CharacterInfo/CharacterInfo";
 import { CharacterLocation } from "./CharacterLocation/CharacterLocation";
+import { GoBack } from "src/components/GoBack/GoBack";
 
 import styles from "./CharacterDetail.module.scss";
 
@@ -18,7 +18,10 @@ export const CharacterDetail = () => {
   const noDetailData = "There is no data for this character";
 
   return (
-    <>
+    <div className={styles["characterDetailContainer"]}>
+      <div className={styles["characterDetailContainer__goBackIcon"]}>
+        <GoBack />
+      </div>
       {characterDetail ? (
         <Container className={styles["characterDetail"]}>
           <div>
@@ -65,6 +68,6 @@ export const CharacterDetail = () => {
       ) : (
         <>{fetching ? <Spinner /> : <p>{noDetailData}</p>}</>
       )}
-    </>
+    </div>
   );
 };

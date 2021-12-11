@@ -1,8 +1,13 @@
 .charactersList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.charactersList__results {
   text-align: center;
 }
 
-.pagination {
+.charactersList__pagination {
   text-align: center;
   display: inline-flex;
   margin-top: 15px;

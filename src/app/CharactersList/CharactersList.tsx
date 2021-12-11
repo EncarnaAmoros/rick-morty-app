@@ -8,12 +8,15 @@ import { Character } from "src/app/types/CharacterDetail";
 import { useCharacterList } from "./CharactersList.hook";
 
 import styles from "./CharactersList.module.scss";
+import { Search } from "src/components/Search/Search";
 
 export const CharactersList = () => {
   const {
     charactersList,
     fetching,
     currentPage,
+    searchText,
+    setSearchText,
     goToPrevPage,
     goToNextPage,
     goToFirstPage,
@@ -32,16 +35,21 @@ export const CharactersList = () => {
     : undefined;
 
   const moreThanOnePage =
-    charactersList?.info.prev || charactersList?.info.next;
+    charactersList?.info?.prev || charactersList?.info?.next;
 
   const goToCharacterDetail = (id: number) => {
     navigate(`/character/${id}`);
   };
 
   return (
-    <>
-      {charactersList ? (
-        <div className={styles.charactersList}>
+    <div className={styles.charactersList}>
+      <Search
+        text={searchText}
+        onChangeSearch={setSearchText}
+        results={charactersList?.info?.count ? charactersList.info.count : 0}
+      />
+      {charactersList?.results ? (
+        <div className={styles["charactersList__results"]}>
           <section>
             {charactersList.results.map((character: Character) => {
               return (
@@ -56,7 +64,7 @@ export const CharactersList = () => {
             })}
           </section>
           {moreThanOnePage && (
-            <div className={styles.pagination}>
+            <div className={styles["charactersList__pagination"]}>
               <ListPagination
                 onPrev={prev}
                 onNext={next}
@@ -71,6 +79,6 @@ export const CharactersList = () => {
       ) : (
         <>{fetching ? <Spinner /> : <h3>{noListData}</h3>}</>
       )}
-    </>
+    </div>
   );
 };
