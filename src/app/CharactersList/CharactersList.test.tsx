@@ -5,16 +5,18 @@ import "@testing-library/jest-dom/extend-expect";
 import {
   mockResultsCharacters,
   mockResultsCharactersWithPagination,
-} from "./CharacterList.mock";
+  mockResultsNoCharactersData,
+} from "./CharactersList.mock";
 import { CharactersList } from "./CharactersList";
 
 jest.mock("./CharactersList.hook", () => ({
-  useCharacterList: jest
+  useCharactersList: jest
     .fn()
     .mockReturnValueOnce(mockResultsCharacters)
     .mockReturnValueOnce(mockResultsCharacters)
     .mockReturnValueOnce(mockResultsCharactersWithPagination)
-    .mockReturnValue(mockResultsCharacters),
+    .mockReturnValueOnce(mockResultsNoCharactersData)
+    .mockReturnValueOnce(mockResultsCharacters),
 }));
 
 jest.mock("react-router-dom", () => ({
@@ -52,5 +54,13 @@ describe("Character List without", () => {
     expect(screen.getByText(3)).toBeVisible();
     expect(screen.getByText(/previous/i)).toBeVisible();
     expect(screen.getByText(/next/i)).toBeVisible();
+  });
+
+  it("should render a empty list of characters", async () => {
+    render(<CharactersList />);
+
+    expect(
+      screen.getByText("There is no data about the characters of the serie")
+    ).toBeVisible();
   });
 });

@@ -2,7 +2,10 @@ module.exports = (api) => {
   return {
     sourceType: "unambiguous",
     presets: [
-      ["@babel/preset-env", { useBuiltIns: false, corejs: "3.19" }],
+      [
+        "@babel/preset-env",
+        { useBuiltIns: api.env("test") ? false : "entry", corejs: "3.19" },
+      ],
       "@babel/preset-react",
       "@babel/preset-typescript",
     ].filter(Boolean),

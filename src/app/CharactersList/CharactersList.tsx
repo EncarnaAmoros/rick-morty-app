@@ -5,10 +5,11 @@ import { Spinner } from "src/components/Spinner/Spinner";
 import { CharacterCard } from "src/components/CharacterCard/CharacterCard";
 import { ListPagination } from "src/components/Pagination/ListPagination";
 import { Character } from "src/app/types/CharacterDetail";
-import { useCharacterList } from "./CharactersList.hook";
+import { Search } from "src/components/Search/Search";
+import { GeneralInfo } from "src/components/GeneralInfo/GeneralInfo";
+import { useCharactersList } from "./CharactersList.hook";
 
 import styles from "./CharactersList.module.scss";
-import { Search } from "src/components/Search/Search";
 
 export const CharactersList = () => {
   const {
@@ -21,18 +22,14 @@ export const CharactersList = () => {
     goToNextPage,
     goToFirstPage,
     goToLastPage,
-  } = useCharacterList();
+  } = useCharactersList();
   const navigate = useNavigate();
 
   const noListData = "There is no data about the characters of the serie";
 
-  const prev = charactersList?.info?.prev
-    ? async () => await goToPrevPage()
-    : undefined;
+  const prev = charactersList?.info?.prev ? goToPrevPage : undefined;
 
-  const next = charactersList?.info?.next
-    ? async () => await goToNextPage()
-    : undefined;
+  const next = charactersList?.info?.next ? goToNextPage : undefined;
 
   const moreThanOnePage =
     charactersList?.info?.prev || charactersList?.info?.next;
@@ -77,7 +74,7 @@ export const CharactersList = () => {
           )}
         </div>
       ) : (
-        <>{fetching ? <Spinner /> : <h3>{noListData}</h3>}</>
+        <>{fetching ? <Spinner /> : <GeneralInfo info={noListData} />}</>
       )}
     </div>
   );

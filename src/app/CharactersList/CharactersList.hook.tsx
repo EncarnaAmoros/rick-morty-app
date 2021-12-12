@@ -3,23 +3,21 @@ import { CharacterListResponse } from "src/app/types/CharacterList";
 
 const rmurl = "https://rickandmortyapi.com/api/character";
 
-export const useCharacterList = () => {
+export const useCharactersList = () => {
+  const firstPage: number = 1;
+
   const [charactersList, setCharactersList] = useState<CharacterListResponse>();
   const [fetching, setFetching] = useState<boolean>();
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(firstPage);
   const [searchText, setSearchText] = useState<string>("");
 
   const fetchCharacters = async (url?: string) => {
     setFetching(true);
     const response = await fetch(url ? url : rmurl);
     setCharactersList(await response.json());
-    setCurrentPage(0);
+    setCurrentPage(1);
     setFetching(false);
   };
-
-  useEffect(() => {
-    fetchCharacters();
-  }, []);
 
   useEffect(() => {
     if (searchText) {
@@ -43,7 +41,7 @@ export const useCharacterList = () => {
 
   const goToFirstPage = async () => {
     await fetchCharacters(`${rmurl}?page=0`);
-    setCurrentPage(0);
+    setCurrentPage(firstPage);
   };
 
   const goToLastPage = async (lastPage: number) => {

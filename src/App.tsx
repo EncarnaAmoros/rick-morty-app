@@ -6,9 +6,9 @@ import { CharacterDetail } from "src/app/CharacterDetail/CharactersDetail";
 
 import "./App.scss";
 
-const title = "Rick & Morty";
+export const App = () => {
+  const title = "Rick & Morty";
 
-function App() {
   return (
     <div className="app">
       <div className="app__header">
@@ -22,6 +22,4 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
-
-export default App;
+};

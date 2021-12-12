@@ -10,6 +10,7 @@ import { CharacterLocation } from "./CharacterLocation/CharacterLocation";
 import { GoBack } from "src/components/GoBack/GoBack";
 
 import styles from "./CharacterDetail.module.scss";
+import { GeneralInfo } from "src/components/GeneralInfo/GeneralInfo";
 
 export const CharacterDetail = () => {
   const { id } = useParams();
@@ -66,7 +67,7 @@ export const CharacterDetail = () => {
           </div>
         </Container>
       ) : (
-        <>{fetching ? <Spinner /> : <p>{noDetailData}</p>}</>
+        <>{fetching ? <Spinner /> : <GeneralInfo info={noDetailData} />}</>
       )}
     </div>
   );
