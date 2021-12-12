@@ -19,10 +19,6 @@ jest.mock("./CharactersList.hook", () => ({
     .mockReturnValueOnce(mockResultsCharacters),
 }));
 
-jest.mock("react-router-dom", () => ({
-  useNavigate: () => {},
-}));
-
 describe("Character List without", () => {
   it("should render a list of characters", async () => {
     render(<CharactersList />);
@@ -59,8 +55,6 @@ describe("Character List without", () => {
   it("should render a empty list of characters", async () => {
     render(<CharactersList />);
 
-    expect(
-      screen.getByText("There is no data about the characters of the serie")
-    ).toBeVisible();
+    expect(screen.getByText("There is no characters data")).toBeVisible();
   });
 });

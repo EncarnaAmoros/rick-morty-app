@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { CharacterListResponse } from "src/app/types/CharacterList";
+import { useNavigate } from "react-router-dom";
 
-const rmurl = "https://rickandmortyapi.com/api/character";
+import { getCharactersListUrl } from "src/app/CharactersList/service/urls";
+import { CharacterListResponse } from "src/app/types/CharacterList";
 
 export const useCharactersList = () => {
   const firstPage: number = 1;
@@ -10,21 +11,18 @@ export const useCharactersList = () => {
   const [fetching, setFetching] = useState<boolean>();
   const [currentPage, setCurrentPage] = useState<number>(firstPage);
   const [searchText, setSearchText] = useState<string>("");
+  const navigate = useNavigate();
 
-  const fetchCharacters = async (url?: string) => {
+  const fetchCharacters = async (url: string) => {
     setFetching(true);
-    const response = await fetch(url ? url : rmurl);
+    const response = await fetch(url);
     setCharactersList(await response.json());
     setCurrentPage(1);
     setFetching(false);
   };
 
   useEffect(() => {
-    if (searchText) {
-      fetchCharacters(`${rmurl}/?name=${searchText}`);
-    } else {
-      fetchCharacters();
-    }
+    fetchCharacters(getCharactersListUrl(searchText));
   }, [searchText]);
 
   const goToPrevPage = async () => {
@@ -40,13 +38,17 @@ export const useCharactersList = () => {
   };
 
   const goToFirstPage = async () => {
-    await fetchCharacters(`${rmurl}?page=0`);
+    await fetchCharacters(getCharactersListUrl(searchText, 0));
     setCurrentPage(firstPage);
   };
 
   const goToLastPage = async (lastPage: number) => {
-    await fetchCharacters(`${rmurl}?page=${lastPage}`);
+    await fetchCharacters(getCharactersListUrl(searchText, lastPage));
     setCurrentPage(lastPage);
+  };
+
+  const goToCharacterDetail = (id: number) => {
+    navigate(`/character/${id}`);
   };
 
   return {
@@ -59,5 +61,6 @@ export const useCharactersList = () => {
     goToNextPage,
     goToFirstPage,
     goToLastPage,
+    goToCharacterDetail,
   };
 };

@@ -10,7 +10,7 @@ import "@testing-library/jest-dom/extend-expect";
 import "whatwg-fetch";
 
 import { CharactersList } from "src/app/CharactersList/CharactersList";
-import { charactersHandler } from "../CharactersList/service/mocks";
+import { charactersHandler } from "../CharactersList/service/httpHandlers";
 
 jest.mock("react-router-dom", () => ({
   useNavigate: () => {},
@@ -51,6 +51,15 @@ describe("Character List without", () => {
     expect(screen.getByText("2")).toBeVisible();
   });
 
+  it("should render the last page of the characters list", async () => {
+    fireEvent.click(screen.getByText(/last/i));
+    expect(await screen.findByText("Alien")).toBeVisible();
+    expect(screen.getByText("Robocop")).toBeVisible();
+    expect(screen.getByText("Patricio")).toBeVisible();
+    expect(screen.getByText("5")).toBeVisible();
+    expect(screen.getByText(/25 results have been found/)).toBeVisible();
+  });
+
   it("should render the search of morty characters list without pagination", async () => {
     fireEvent.change(screen.getByRole("textbox"), {
       target: { value: "morty" },
@@ -63,5 +72,23 @@ describe("Character List without", () => {
     expect(screen.getByText(/3 results have been found/)).toBeVisible();
     expect(screen.queryByText("0")).not.toBeInTheDocument();
     expect(screen.queryByText(/next/i)).not.toBeInTheDocument();
+  });
+
+  it("should render the last search of rick characters list with pagination", async () => {
+    fireEvent.change(screen.getByRole("textbox"), {
+      target: { value: "rick" },
+    });
+
+    expect(screen.getByDisplayValue("rick")).toBeVisible();
+    expect(await screen.findByText("Rick Clone")).toBeVisible();
+    expect(screen.getByText("Rick")).toBeVisible();
+    expect(screen.getByText("Robot Rick")).toBeVisible();
+    expect(screen.getByText(/30 results have been found/)).toBeVisible();
+    expect(screen.queryByText("1")).toBeVisible();
+
+    fireEvent.click(screen.getByText(/last/i));
+    expect(await screen.findByText("Final Rick")).toBeVisible();
+    expect(screen.getByText(/30 results have been found/)).toBeVisible();
+    expect(screen.queryByText("3")).toBeVisible();
   });
 });

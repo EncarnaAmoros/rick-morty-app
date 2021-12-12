@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 import { Spinner } from "src/components/Spinner/Spinner";
 import { CharacterCard } from "src/components/CharacterCard/CharacterCard";
@@ -22,10 +21,10 @@ export const CharactersList = () => {
     goToNextPage,
     goToFirstPage,
     goToLastPage,
+    goToCharacterDetail,
   } = useCharactersList();
-  const navigate = useNavigate();
 
-  const noListData = "There is no data about the characters of the serie";
+  const noListData = "There is no characters data";
 
   const prev = charactersList?.info?.prev ? goToPrevPage : undefined;
 
@@ -33,10 +32,6 @@ export const CharactersList = () => {
 
   const moreThanOnePage =
     charactersList?.info?.prev || charactersList?.info?.next;
-
-  const goToCharacterDetail = (id: number) => {
-    navigate(`/character/${id}`);
-  };
 
   return (
     <div className={styles.charactersList}>
