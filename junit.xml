@@ -1,93 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="34" failures="0" errors="0" time="6.024">
-  <testsuite name="GeneralInfo" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:36" time="2.936" tests="1">
-    <testcase classname="GeneralInfo should render a GeneralInfo" name="GeneralInfo should render a GeneralInfo" time="0.117">
+<testsuites name="jest tests" tests="34" failures="0" errors="0" time="5.507">
+  <testsuite name="GeneralInfo" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:06" time="2.708" tests="1">
+    <testcase classname="GeneralInfo should render a GeneralInfo" name="GeneralInfo should render a GeneralInfo" time="0.093">
     </testcase>
   </testsuite>
-  <testsuite name="Spinner" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:36" time="2.943" tests="1">
-    <testcase classname="Spinner should render a spinner" name="Spinner should render a spinner" time="0.125">
+  <testsuite name="Spinner" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:06" time="2.713" tests="1">
+    <testcase classname="Spinner should render a spinner" name="Spinner should render a spinner" time="0.105">
     </testcase>
   </testsuite>
-  <testsuite name="Search" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:36" time="3.5" tests="4">
-    <testcase classname="Search should render the search component" name="Search should render the search component" time="0.117">
+  <testsuite name="Character Card" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:06" time="3.24" tests="2">
+    <testcase classname="Character Card should render an alien character card" name="Character Card should render an alien character card" time="0.129">
     </testcase>
-    <testcase classname="Search should render the search text and results" name="Search should render the search text and results" time="0.054">
-    </testcase>
-    <testcase classname="Search should not call on change search whitout changes" name="Search should not call on change search whitout changes" time="0.008">
-    </testcase>
-    <testcase classname="Search should call on change search with changes" name="Search should call on change search with changes" time="0.013">
+    <testcase classname="Character Card should render an unkown character card" name="Character Card should render an unkown character card" time="0.048">
     </testcase>
   </testsuite>
-  <testsuite name="Character Card" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:36" time="3.622" tests="2">
-    <testcase classname="Character Card should render an alien character card" name="Character Card should render an alien character card" time="0.156">
+  <testsuite name="Search" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:06" time="3.249" tests="4">
+    <testcase classname="Search should render the search component" name="Search should render the search component" time="0.109">
     </testcase>
-    <testcase classname="Character Card should render an unkown character card" name="Character Card should render an unkown character card" time="0.04">
+    <testcase classname="Search should render the search text and results" name="Search should render the search text and results" time="0.052">
     </testcase>
-  </testsuite>
-  <testsuite name="Character detail" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:36" time="3.861" tests="2">
-    <testcase classname="Character detail should render the detailf of a character" name="Character detail should render the detailf of a character" time="0.406">
+    <testcase classname="Search should not call on change search whitout changes" name="Search should not call on change search whitout changes" time="0.017">
     </testcase>
-    <testcase classname="Character detail should render a empty character details data" name="Character detail should render a empty character details data" time="0.012">
+    <testcase classname="Search should call on change search with changes" name="Search should call on change search with changes" time="0.014">
     </testcase>
   </testsuite>
-  <testsuite name="Character Location" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:39" time="0.962" tests="2">
-    <testcase classname="Character Location should render character origin location" name="Character Location should render character origin location" time="0.104">
+  <testsuite name="Character detail" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:06" time="3.552" tests="2">
+    <testcase classname="Character detail should render the detailf of a character" name="Character detail should render the detailf of a character" time="0.384">
     </testcase>
-    <testcase classname="Character Location should render character no origin location" name="Character Location should render character no origin location" time="0.034">
-    </testcase>
-  </testsuite>
-  <testsuite name="Character List without" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:36" time="4.201" tests="4">
-    <testcase classname="Character List without should render a list of characters" name="Character List without should render a list of characters" time="0.223">
-    </testcase>
-    <testcase classname="Character List without should render a list of characters without pagination" name="Character List without should render a list of characters without pagination" time="0.06">
-    </testcase>
-    <testcase classname="Character List without should render a list of characters with pagination" name="Character List without should render a list of characters with pagination" time="0.105">
-    </testcase>
-    <testcase classname="Character List without should render a empty list of characters" name="Character List without should render a empty list of characters" time="0.011">
+    <testcase classname="Character detail should render a empty character details data" name="Character detail should render a empty character details data" time="0.013">
     </testcase>
   </testsuite>
-  <testsuite name="Character Info" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:40" time="0.772" tests="2">
-    <testcase classname="Character Info should render character info" name="Character Info should render character info" time="0.048">
+  <testsuite name="Character List without" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:06" time="3.569" tests="4">
+    <testcase classname="Character List without should render a list of characters" name="Character List without should render a list of characters" time="0.228">
+    </testcase>
+    <testcase classname="Character List without should render a list of characters without pagination" name="Character List without should render a list of characters without pagination" time="0.086">
+    </testcase>
+    <testcase classname="Character List without should render a list of characters with pagination" name="Character List without should render a list of characters with pagination" time="0.109">
+    </testcase>
+    <testcase classname="Character List without should render a empty list of characters" name="Character List without should render a empty list of characters" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="Character Location" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:09" time="0.892" tests="2">
+    <testcase classname="Character Location should render character origin location" name="Character Location should render character origin location" time="0.095">
+    </testcase>
+    <testcase classname="Character Location should render character no origin location" name="Character Location should render character no origin location" time="0.028">
+    </testcase>
+  </testsuite>
+  <testsuite name="Character Info" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:10" time="0.687" tests="2">
+    <testcase classname="Character Info should render character info" name="Character Info should render character info" time="0.04">
     </testcase>
     <testcase classname="Character Info should render character info with unknown value" name="Character Info should render character info with unknown value" time="0.02">
     </testcase>
   </testsuite>
-  <testsuite name="GoBack" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:40" time="0.708" tests="1">
-    <testcase classname="GoBack should render a go back icon" name="GoBack should render a go back icon" time="0.038">
+  <testsuite name="GoBack" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:10" time="0.691" tests="1">
+    <testcase classname="GoBack should render a go back icon" name="GoBack should render a go back icon" time="0.045">
     </testcase>
   </testsuite>
-  <testsuite name="ListPagination" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:39" time="1.379" tests="10">
-    <testcase classname="ListPagination should render the pagination" name="ListPagination should render the pagination" time="0.06">
+  <testsuite name="ListPagination" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:09" time="1.255" tests="10">
+    <testcase classname="ListPagination should render the pagination" name="ListPagination should render the pagination" time="0.051">
     </testcase>
-    <testcase classname="ListPagination should render the pagination starting in the 3 page" name="ListPagination should render the pagination starting in the 3 page" time="0.021">
+    <testcase classname="ListPagination should render the pagination starting in the 3 page" name="ListPagination should render the pagination starting in the 3 page" time="0.022">
     </testcase>
-    <testcase classname="ListPagination should render all the links enabled" name="ListPagination should render all the links enabled" time="0.012">
+    <testcase classname="ListPagination should render all the links enabled" name="ListPagination should render all the links enabled" time="0.013">
     </testcase>
-    <testcase classname="ListPagination should render the pagination prev icon disabled in the first page" name="ListPagination should render the pagination prev icon disabled in the first page" time="0.011">
+    <testcase classname="ListPagination should render the pagination prev icon disabled in the first page" name="ListPagination should render the pagination prev icon disabled in the first page" time="0.01">
     </testcase>
-    <testcase classname="ListPagination should render the pagination next icon disabled in the first page" name="ListPagination should render the pagination next icon disabled in the first page" time="0.013">
+    <testcase classname="ListPagination should render the pagination next icon disabled in the first page" name="ListPagination should render the pagination next icon disabled in the first page" time="0.01">
     </testcase>
     <testcase classname="ListPagination should not call none event when no click in no icon" name="ListPagination should not call none event when no click in no icon" time="0.007">
     </testcase>
-    <testcase classname="ListPagination should call next event when click on next icon" name="ListPagination should call next event when click on next icon" time="0.011">
+    <testcase classname="ListPagination should call next event when click on next icon" name="ListPagination should call next event when click on next icon" time="0.012">
     </testcase>
     <testcase classname="ListPagination should call prev event when click on prev icon" name="ListPagination should call prev event when click on prev icon" time="0.007">
     </testcase>
-    <testcase classname="ListPagination should call first event when click on first icon" name="ListPagination should call first event when click on first icon" time="0.01">
+    <testcase classname="ListPagination should call first event when click on first icon" name="ListPagination should call first event when click on first icon" time="0.008">
     </testcase>
-    <testcase classname="ListPagination should call last event when click on last icon" name="ListPagination should call last event when click on last icon" time="0.007">
+    <testcase classname="ListPagination should call last event when click on last icon" name="ListPagination should call last event when click on last icon" time="0.005">
     </testcase>
   </testsuite>
-  <testsuite name="Character List without" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:10:36" time="4.723" tests="5">
-    <testcase classname="Character List without should render a list of characters with pagination" name="Character List without should render a list of characters with pagination" time="0.257">
+  <testsuite name="Character List without" errors="0" failures="0" skipped="0" timestamp="2021-12-12T23:13:06" time="4.209" tests="5">
+    <testcase classname="Character List without should render a list of characters with pagination" name="Character List without should render a list of characters with pagination" time="0.303">
     </testcase>
-    <testcase classname="Character List without should render the second page of the characters list" name="Character List without should render the second page of the characters list" time="0.124">
+    <testcase classname="Character List without should render the second page of the characters list" name="Character List without should render the second page of the characters list" time="0.131">
     </testcase>
-    <testcase classname="Character List without should render the last page of the characters list" name="Character List without should render the last page of the characters list" time="0.079">
+    <testcase classname="Character List without should render the last page of the characters list" name="Character List without should render the last page of the characters list" time="0.096">
     </testcase>
-    <testcase classname="Character List without should render the search of morty characters list without pagination" name="Character List without should render the search of morty characters list without pagination" time="0.086">
+    <testcase classname="Character List without should render the search of morty characters list without pagination" name="Character List without should render the search of morty characters list without pagination" time="0.106">
     </testcase>
-    <testcase classname="Character List without should render the last search of rick characters list with pagination" name="Character List without should render the last search of rick characters list with pagination" time="0.12">
+    <testcase classname="Character List without should render the last search of rick characters list with pagination" name="Character List without should render the last search of rick characters list with pagination" time="0.118">
     </testcase>
   </testsuite>
 </testsuites>
