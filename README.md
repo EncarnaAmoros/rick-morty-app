@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# Rick & Morty App
+
+## About the project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Website made of two type of pages:
+
+- Main page where we can see a list of all the characters with general information about them. There's also a search filter by character’s name.
+- Individual page where we can see in detail the information of each character, so they can have access to all their data. This page can be shared with a unique link.
+
+Both pages can be visualized from a mobile phone and a computer.
+
+The information is obtained from this API: https://rickandmortyapi.com/documentation/#filter-characters
 
 ## Available Scripts
 
