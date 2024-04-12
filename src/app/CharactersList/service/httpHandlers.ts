@@ -1,4 +1,4 @@
-import { rest } from "msw";
+import { http } from "msw";
 
 import {
   resultsCharactersWithPagination,
@@ -10,25 +10,24 @@ import {
 } from "src/app/CharactersList/CharactersList.mock";
 import { mortyCharacterDetail } from "src/app/CharacterDetail/CharacterDetail.mock";
 
-export const charactersHandler = rest.get(
-  "*/api/character",
-  (req, res, ctx) => {
-    const page = req.url.searchParams.get("page");
-    const name = req.url.searchParams.get("name");
+export const charactersHandler = http.get("*/api/character", ({ request }) => {
+  const url = new URL(request.url);
+  const page = url.searchParams.get("page");
+  const name = url.searchParams.get("name");
 
-    if (name === "morty") return res(ctx.json(resultsMortyCharacters));
-    if (name === "rick" && !page) return res(ctx.json(resultsRickCharacters));
-    if (name === "rick" && page === "3")
-      return res(ctx.json(resultsRickCharactersLastPage));
-    else if (!page || page === "1")
-      return res(ctx.json(resultsCharactersWithPagination));
-    else if (page === "5")
-      return res(ctx.json(resultsCharacters3WithPagination));
-    else return res(ctx.json(resultsCharacters2WithPagination));
-  }
-);
+  if (name === "morty") new Response(JSON.stringify(resultsMortyCharacters));
+  if (name === "rick" && !page)
+    new Response(JSON.stringify(resultsRickCharacters));
+  if (name === "rick" && page === "3")
+    new Response(JSON.stringify(resultsRickCharactersLastPage));
+  else if (!page || page === "1")
+    new Response(JSON.stringify(resultsCharactersWithPagination));
+  else if (page === "5")
+    new Response(JSON.stringify(resultsCharacters3WithPagination));
+  else new Response(JSON.stringify(resultsCharacters2WithPagination));
+});
 
-export const characterDetailHandler = rest.get(
+export const characterDetailHandler = http.get(
   "*/api/character/3",
-  (req, res, ctx) => res(ctx.json(mortyCharacterDetail))
+  () => new Response(JSON.stringify(mortyCharacterDetail))
 );

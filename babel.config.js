@@ -14,6 +14,7 @@ module.exports = (api) => {
       "@babel/plugin-syntax-dynamic-import",
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-transform-runtime",
+      "@babel/preset-typescript",
       !api.env("test") && [
         "formatjs",
         {
