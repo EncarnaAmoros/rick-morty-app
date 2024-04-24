@@ -1,4 +1,4 @@
-import { CharacterListResponse } from "src/app/types/CharacterList";
+import { CharacterListResponse } from "app/types/CharacterList";
 
 const resutlsPage1 = [
   {

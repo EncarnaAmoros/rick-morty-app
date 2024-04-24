@@ -1,6 +1,6 @@
 import React from "react";
+import { vi, describe, it, expect } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 
 import { Search } from "./Search";
 
@@ -21,7 +21,7 @@ describe("Search", () => {
   });
 
   it("should not call on change search whitout changes", async () => {
-    const onChangeSearch = jest.fn();
+    const onChangeSearch = vi.fn();
     render(
       <Search text={"Morty"} results={50} onChangeSearch={onChangeSearch} />
     );
@@ -30,7 +30,7 @@ describe("Search", () => {
   });
 
   it("should call on change search with changes", async () => {
-    const onChangeSearch = jest.fn();
+    const onChangeSearch = vi.fn();
     render(
       <Search text={"Morty"} results={50} onChangeSearch={onChangeSearch} />
     );

@@ -1,40 +1,62 @@
 import React from "react";
-import { setupServer } from "msw/node";
 import {
   fireEvent,
   render,
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import "whatwg-fetch";
+import {
+  vi,
+  describe,
+  it,
+  expect,
+  beforeAll,
+  afterEach,
+  afterAll,
+  beforeEach,
+} from "vitest";
 
-import { CharactersList } from "src/app/CharactersList/CharactersList";
-import { charactersHandler } from "../CharactersList/service/httpHandlers";
+import { CharactersList } from "app/CharactersList/CharactersList";
+import { server } from "../../mocks/node";
 
-jest.mock("react-router-dom", () => ({
+vi.mock("react-router-dom", () => ({
   useNavigate: () => {},
 }));
 
-const server = setupServer(charactersHandler);
+beforeAll(() => {
+  server.listen();
+});
+
+afterEach(() => {
+  server.resetHandlers();
+});
+
+afterAll(() => {
+  server.close();
+});
 
 describe("Character List without", () => {
   beforeAll(() => {
-    server.listen({
-      onUnhandledRequest: "error",
-    });
+    server.listen();
+  });
+
+  afterEach(() => {
+    server.resetHandlers();
   });
 
   afterAll(() => {
     server.close();
   });
 
-  beforeEach(async () => {
+  const setup = async () => {
     render(<CharactersList />);
-    await waitForElementToBeRemoved(screen.getByText(/loading\.\.\./i));
-  });
+
+    await waitForElementToBeRemoved(screen.queryByText(/loading\.\.\./i));
+  };
 
   it("should render a list of characters with pagination", async () => {
+    await setup();
+
     expect(screen.getByText("Alfredo")).toBeVisible();
     expect(screen.getByText("Ana")).toBeVisible();
     expect(screen.getByText("Morty")).toBeVisible();
@@ -44,6 +66,8 @@ describe("Character List without", () => {
   });
 
   it("should render the second page of the characters list", async () => {
+    await setup();
+
     fireEvent.click(screen.getByText(/next/i));
     expect(await screen.findByText("Summer")).toBeVisible();
     expect(screen.getByText("Rick")).toBeVisible();
@@ -52,6 +76,8 @@ describe("Character List without", () => {
   });
 
   it("should render the last page of the characters list", async () => {
+    await setup();
+
     fireEvent.click(screen.getByText(/last/i));
     expect(await screen.findByText("Alien")).toBeVisible();
     expect(screen.getByText("Robocop")).toBeVisible();
@@ -61,6 +87,8 @@ describe("Character List without", () => {
   });
 
   it("should render the search of morty characters list without pagination", async () => {
+    await setup();
+
     fireEvent.change(screen.getByRole("textbox"), {
       target: { value: "morty" },
     });
@@ -75,6 +103,8 @@ describe("Character List without", () => {
   });
 
   it("should render the last search of rick characters list with pagination", async () => {
+    await setup();
+
     fireEvent.change(screen.getByRole("textbox"), {
       target: { value: "rick" },
     });

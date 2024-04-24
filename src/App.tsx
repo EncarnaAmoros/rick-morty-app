@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { CharactersList } from "src/app/CharactersList/CharactersList";
-import { CharacterDetail } from "src/app/CharacterDetail/CharactersDetail";
+import { CharactersList } from "app/CharactersList/CharactersList";
+import { CharacterDetail } from "app/CharacterDetail/CharactersDetail";
 
 import "./App.scss";
 

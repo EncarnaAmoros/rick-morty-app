@@ -2,7 +2,7 @@ import React from "react";
 import { Pagination } from "react-bootstrap";
 
 type PaginationProps = {
-  curr: number;
+  currentPage: number;
   onPrev?: () => void;
   onNext?: () => void;
   onFirstPage: () => void;
@@ -11,7 +11,7 @@ type PaginationProps = {
 };
 
 export const ListPagination = ({
-  curr,
+  currentPage,
   onPrev,
   onNext,
   onFirstPage,
@@ -26,7 +26,7 @@ export const ListPagination = ({
       ) : (
         <Pagination.Prev disabled />
       )}
-      <Pagination.Item active>{curr}</Pagination.Item>
+      <Pagination.Item active>{currentPage}</Pagination.Item>
       {onNext ? (
         <Pagination.Next onClick={onNext} />
       ) : (

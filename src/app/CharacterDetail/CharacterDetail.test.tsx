@@ -1,20 +1,24 @@
 import React from "react";
+import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 
 import { mockCharacterData, mockCharacterNoData } from "./CharacterDetail.mock";
 import { CharacterDetail } from "./CharactersDetail";
 
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => {},
-  useParams: () => ({
-    id: "5",
-  }),
-}));
+vi.mock("react-router-dom", async () => {
+  const actualRouterDom = await vi.importActual("react-router-dom");
 
-jest.mock("./CharacterDetail.hook", () => ({
-  useCharacterDetail: jest
+  return {
+    ...actualRouterDom,
+    useNavigate: () => {},
+    useParams: () => ({
+      id: "5",
+    }),
+  };
+});
+
+vi.mock("./CharacterDetail.hook", () => ({
+  useCharacterDetail: vi
     .fn()
     .mockReturnValueOnce(mockCharacterData)
     .mockReturnValueOnce(mockCharacterNoData),

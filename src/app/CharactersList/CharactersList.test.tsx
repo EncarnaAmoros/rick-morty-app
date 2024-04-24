@@ -1,6 +1,6 @@
 import React from "react";
+import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 
 import {
   mockResultsCharacters,
@@ -9,8 +9,8 @@ import {
 } from "./CharactersList.mock";
 import { CharactersList } from "./CharactersList";
 
-jest.mock("./CharactersList.hook", () => ({
-  useCharactersList: jest
+vi.mock("./CharactersList.hook", () => ({
+  useCharactersList: vi
     .fn()
     .mockReturnValueOnce(mockResultsCharacters)
     .mockReturnValueOnce(mockResultsCharacters)

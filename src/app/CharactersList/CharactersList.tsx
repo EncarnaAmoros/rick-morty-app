@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Spinner } from "src/components/Spinner/Spinner";
-import { CharacterCard } from "src/components/CharacterCard/CharacterCard";
-import { ListPagination } from "src/components/Pagination/ListPagination";
-import { Character } from "src/app/types/CharacterDetail";
-import { Search } from "src/components/Search/Search";
-import { GeneralInfo } from "src/components/GeneralInfo/GeneralInfo";
+import { Spinner } from "components/Spinner/Spinner";
+import { CharacterCard } from "components/CharacterCard/CharacterCard";
+import { ListPagination } from "components/Pagination/ListPagination";
+import { Character } from "app/types/CharacterDetail";
+import { Search } from "components/Search/Search";
+import { GeneralInfo } from "components/GeneralInfo/GeneralInfo";
 import { useCharactersList } from "./CharactersList.hook";
 
 import styles from "./CharactersList.module.scss";
@@ -62,7 +62,7 @@ export const CharactersList = () => {
                 onNext={next}
                 onFirstPage={goToFirstPage}
                 onLastPage={goToLastPage}
-                curr={currentPage}
+                currentPage={currentPage}
                 lastPage={charactersList.info.pages}
               />
             </div>

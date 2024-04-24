@@ -1,4 +1,4 @@
-import { Character } from "src/app/types/CharacterDetail";
+import { Character } from "app/types/CharacterDetail";
 
 export const mortyCharacterDetail: Character = {
   id: 2,

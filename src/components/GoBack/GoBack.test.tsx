@@ -1,10 +1,10 @@
 import React from "react";
+import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 
 import { GoBack } from "./GoBack";
 
-jest.mock("react-router-dom", () => ({
+vi.mock("react-router-dom", () => ({
   useNavigate: () => {},
 }));
 

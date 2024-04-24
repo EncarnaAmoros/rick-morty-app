@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { getCharactersListUrl } from "src/app/CharactersList/service/urls";
-import { CharacterListResponse } from "src/app/types/CharacterList";
+import { getCharactersListUrl } from "app/CharactersList/service/urls";
+import { CharacterListResponse } from "app/types/CharacterList";
 
 export const useCharactersList = () => {
   const firstPage: number = 1;

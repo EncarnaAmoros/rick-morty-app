@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 
-import { Spinner } from "src/components/Spinner/Spinner";
+import { Spinner } from "components/Spinner/Spinner";
 import { useCharacterDetail } from "./CharacterDetail.hook";
 import { CharacterInfo } from "./CharacterInfo/CharacterInfo";
 import { CharacterLocation } from "./CharacterLocation/CharacterLocation";
-import { GoBack } from "src/components/GoBack/GoBack";
+import { GoBack } from "components/GoBack/GoBack";
 
 import styles from "./CharacterDetail.module.scss";
-import { GeneralInfo } from "src/components/GeneralInfo/GeneralInfo";
+import { GeneralInfo } from "components/GeneralInfo/GeneralInfo";
 
 export const CharacterDetail = () => {
   const { id } = useParams();

@@ -1,12 +1,12 @@
 import React from "react";
+import { vi, describe, it, expect } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 
 import { ListPagination } from "./ListPagination";
 
 describe("ListPagination", () => {
   const setup = (
-    curr: number,
+    currentPage: number,
     lastPage: number,
     onFirstPage: () => void,
     onLastPage: () => void,
@@ -15,7 +15,7 @@ describe("ListPagination", () => {
   ) =>
     render(
       <ListPagination
-        curr={curr}
+        currentPage={currentPage}
         lastPage={lastPage}
         onFirstPage={onFirstPage}
         onLastPage={onLastPage}
@@ -56,18 +56,27 @@ describe("ListPagination", () => {
       () => {}
     );
 
-    expect(screen.getByText(/previous/i).parentElement).not.toHaveAttribute(
-      "disabled"
-    );
-    expect(screen.getByText(/next/i).parentElement).not.toHaveAttribute(
-      "disabled"
-    );
-    expect(screen.getByText(/first/i).parentElement).not.toHaveAttribute(
-      "disabled"
-    );
-    expect(screen.getByText(/last/i).parentElement).not.toHaveAttribute(
-      "disabled"
-    );
+    expect(
+      screen.getByRole("button", {
+        name: /previous/i,
+      })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("button", {
+        name: /next/i,
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /first/i,
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /last/i,
+      })
+    ).toBeInTheDocument();
   });
 
   it("should render the pagination prev icon disabled in the first page", async () => {
@@ -79,9 +88,11 @@ describe("ListPagination", () => {
       () => {}
     );
 
-    expect(screen.getByText(/previous/i).parentElement).toHaveAttribute(
-      "disabled"
-    );
+    expect(
+      screen.queryByRole("button", {
+        name: /previous/i,
+      })
+    ).not.toBeInTheDocument();
   });
 
   it("should render the pagination next icon disabled in the first page", async () => {
@@ -94,14 +105,18 @@ describe("ListPagination", () => {
       () => {}
     );
 
-    expect(screen.getByText(/next/i).parentElement).toHaveAttribute("disabled");
+    expect(
+      screen.queryByRole("button", {
+        name: /next/i,
+      })
+    ).not.toBeInTheDocument();
   });
 
   it("should not call none event when no click in no icon", async () => {
-    const onNext = jest.fn();
-    const onFirst = jest.fn();
-    const onPrev = jest.fn();
-    const onLast = jest.fn();
+    const onNext = vi.fn();
+    const onFirst = vi.fn();
+    const onPrev = vi.fn();
+    const onLast = vi.fn();
 
     setup(3, 4, onFirst, onLast, onNext, onPrev);
 
@@ -112,10 +127,10 @@ describe("ListPagination", () => {
   });
 
   it("should call next event when click on next icon", async () => {
-    const onNext = jest.fn();
-    const onFirst = jest.fn();
-    const onPrev = jest.fn();
-    const onLast = jest.fn();
+    const onNext = vi.fn();
+    const onFirst = vi.fn();
+    const onPrev = vi.fn();
+    const onLast = vi.fn();
 
     setup(3, 4, onFirst, onLast, onNext, onPrev);
 
@@ -128,10 +143,10 @@ describe("ListPagination", () => {
   });
 
   it("should call prev event when click on prev icon", async () => {
-    const onNext = jest.fn();
-    const onFirst = jest.fn();
-    const onPrev = jest.fn();
-    const onLast = jest.fn();
+    const onNext = vi.fn();
+    const onFirst = vi.fn();
+    const onPrev = vi.fn();
+    const onLast = vi.fn();
 
     setup(3, 4, onFirst, onLast, onNext, onPrev);
 
@@ -144,10 +159,10 @@ describe("ListPagination", () => {
   });
 
   it("should call first event when click on first icon", async () => {
-    const onNext = jest.fn();
-    const onFirst = jest.fn();
-    const onPrev = jest.fn();
-    const onLast = jest.fn();
+    const onNext = vi.fn();
+    const onFirst = vi.fn();
+    const onPrev = vi.fn();
+    const onLast = vi.fn();
 
     setup(3, 4, onFirst, onLast, onNext, onPrev);
 
@@ -160,10 +175,10 @@ describe("ListPagination", () => {
   });
 
   it("should call last event when click on last icon", async () => {
-    const onNext = jest.fn();
-    const onFirst = jest.fn();
-    const onPrev = jest.fn();
-    const onLast = jest.fn();
+    const onNext = vi.fn();
+    const onFirst = vi.fn();
+    const onPrev = vi.fn();
+    const onLast = vi.fn();
 
     setup(3, 4, onFirst, onLast, onNext, onPrev);
 

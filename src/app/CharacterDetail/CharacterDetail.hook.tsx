@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Character } from "src/app/types/CharacterDetail";
+import { Character } from "app/types/CharacterDetail";
 
 const rmurl = "https://rickandmortyapi.com/api/character";
 
